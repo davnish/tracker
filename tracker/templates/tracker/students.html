@@ -1,0 +1,43 @@
+{% extends 'tracker/base.html' %}
+
+{% block styles %}
+<style>
+.mainmid{
+    text-align: center;
+}
+.mainup{
+    text-align: center;
+}
+</style>
+<script>
+    $("#hide").click(function(){
+        $("#mainmid").hide();
+      });
+</script>
+
+{% endblock styles %}
+
+{% block content %}
+<div class="mainup">
+    <p>Student: {{ student }}</p>
+    <a  href="{% url 'tracker-home' %}">Log Out</a>
+
+</div>
+
+<div class="mainmid"> 
+    <form method = "POST">
+    {% csrf_token %}
+        <fieldset>
+        <legend>Mark Your Attendance for CCV: </legend>
+        <input type="radio" id="Present" name="Attendence" value="True">
+        <label for="Attendence">Present</label>
+        <input type="radio" id="Absent" name="Attendence" value="False">
+        <label for="Attendence">Absent</label><br>
+        <input type="submit" id="hide" value="Submit">
+        </fieldset>
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock content %}

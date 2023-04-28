@@ -1,0 +1,30 @@
+{% extends 'tracker/base.html' %}
+
+{% block styles %}
+<style>
+.mainmid{
+    text-align: center;
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="mainmid"> 
+    <form method = "POST">
+    {% csrf_token %}
+        <fieldset>
+        <legend>Login:</legend>
+        <label for="fname">Username:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd"><br><br>
+        <p>Are you a:</p>
+        <label for="category">Teacher</label>
+        <input type="radio" id="Teacher" name="category" value="0"><br><br>
+        <label for="category">Student</label>
+        <input type="radio" id="Student" name="category" value="1"><br><br>
+        <input type="submit" value="Submit">
+        </span>
+    </form>
+</div>
+{% endblock content %}
